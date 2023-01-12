@@ -1,0 +1,56 @@
+{
+  "Query Resolver": {
+    "prefix": ["nestQuery", "nq"],
+    "description": "Adds a method decorated with @Query",
+    "body": [
+      "@UseGuards()",
+      "@Query(() => ${1:ObjectToBeResolved}, {",
+      "  name: '${2:queryName}',",
+      "})",
+      "async ${2:queryName}(): Promise<${1}>{}",
+    ]
+  },
+  "Query Arg": {
+    "prefix": ["nestQueryArg", "na"],
+    "description": "Adds query @Arg",
+    "body": "@Args('${1}', {\n  type: () => ${2},\n  nullable: false,\n  defaultValue: ${0},\n})"
+  },
+  "Query Resolver With Params": {
+    "prefix": ["nestQueryWParams", "nqp"],
+    "description": "Adds a method decorated with @Query that has some param definition",
+    "body": [
+      "@UseGuards()",
+      "@Query(() => ${1:ObjectToBeResolved}, {",
+      "  name: '${2:queryName}',",
+      "})",
+      "async ${2:queryName}(",
+      "  @Args('${3:argName}', {",
+      "    type: () => $4,",
+      "    nullable: false,",
+      "    defaultValue: {$5},",
+      "    })",
+      "  ${3}:${4}",
+      "): Promise<${1}>{",
+      "return {} as unknown as ${1};",
+      "}",
+    ]
+  },
+  "Graphql Object Field": {
+    "prefix": ["nestField", "nf"],
+    "description": "Adds a prop decorated with @Field",
+    "body": [
+      "@Field((returns) => ${1:FieldType}, {nullable: ${0:false},})",
+      "${2:fieldName}: ${1};"
+    ]
+  },
+  "Graphql Object String Field": {
+    "prefix": ["nestSField", "nf"],
+    "description": "Adds a prop decorated with @Field of type string",
+    "body": [
+      "@Field({nullable: ${0:false}})",
+      "${1:fieldName}: string;"
+    ]
+  }
+}
+
+
