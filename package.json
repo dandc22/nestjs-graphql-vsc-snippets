@@ -1,5 +1,6 @@
 {
   "name": "nestjs-graphql-snippets",
+  "repository": "https://github.com/dan22-book/nestjs-graphql-vsc-snippets" ,
   "displayName": "NestJS Graphql Snippets",
   "description": "Graphl NestJS snippets",
   "version": "0.0.1",

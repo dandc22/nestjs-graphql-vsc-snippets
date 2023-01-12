@@ -1,10 +1,9 @@
-# nestjs-graphql-snippets README
+# README
 
-This is the README for your extension "nestjs-graphql-snippets".
+Includes some snippets to generate nestjs graphql code first approach.
 
 ## Features
 
-Includes some snippets to generate nestjs graphql code.
 
 - nestQuery
 - nestQueryArg
