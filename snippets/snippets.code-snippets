@@ -57,7 +57,22 @@
       "@Field({ nullable: ${0:false} })",
       "${1:fieldName}: string;"
     ]
-  }
+  },
+  "Graphql Object Resolver with field": {
+    "prefix": ["nestObjectResolver", "nor"],
+    "description": "Creates a nest graphql object resolver with one field",
+    "body": [
+      "import { Parent, ResolveField, Resolver } from '@nestjs/graphql';",
+      "@Resolver(() => ${0:ObjectToBeResolved})",
+      "export class ${1:ObjectToResult} {",
+      "constructor() {}",
+      "@ResolveField('${2:fieldName}', () => ${3:QueryFieldToResolve})",
+      "async ${2:fieldName}(",
+        "@Parent() parent: ${0:ObjectToBeResolved}",
+      "): Promise<${3:QueryFieldToResolve}> {}",
+      "}"
+    ]
+  },
 }
 
 
